@@ -76,14 +76,15 @@ class ExteResource extends Resource
                         $record->save();
                     }),
                 Tables\Actions\Action::make('Refuser Demande')
-                    ->color('danger')
+                    ->color('warning')
                     ->label('Refuser Demande')
-                    ->icon('heroicon-o-trash')
+                    ->icon('heroicon-o-x-mark')
                     ->visible(fn ($record) => !$record->mailed)
                     ->action(function ($record) {
                         Mail::to($record->etu_mail)->send(new ExteRefus($record));
                         $record->delete();
-                    })
+                    }),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 BulkAction::make('envoyer_email')
@@ -111,6 +112,7 @@ class ExteResource extends Resource
                     })
                     ->requiresConfirmation()
                     ->deselectRecordsAfterCompletion(),
+                Tables\Actions\DeleteBulkAction::make()
             ])
             ->checkIfRecordIsSelectableUsing(
                 fn (Model $record): bool => !$record->mailed
