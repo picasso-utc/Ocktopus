@@ -23,7 +23,7 @@ class MailPerm extends Mailable
     {
         $this->record = $record;
         $this->creneaux = $record->creneaux;
-        $this->success = $record->creneaux()->count() > 1;
+        $this->success = $record->validated;
     }
 
     /**

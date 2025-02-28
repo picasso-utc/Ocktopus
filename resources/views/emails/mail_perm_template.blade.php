@@ -7,7 +7,7 @@
     <title>Informations de la Perm</title>
 </head>
 <body>
-<p>Yeehhaaaa !</p>
+<p>Yo yo yooooooo q:D</p>
 
 <p>Si vous lisez ce mail, c’est que vous avez franchi la première étape pour devenir de super permanencier.e.s du PIC ! 🎉 Votre perm <strong>{{ $record->nom }}</strong> a été sélectionnée !</p>
 
