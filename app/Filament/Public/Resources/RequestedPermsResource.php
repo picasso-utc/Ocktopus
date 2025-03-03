@@ -32,7 +32,7 @@ class RequestedPermsResource extends Resource
     protected static ?string $model = Perm::class;
     protected static ?string $navigationGroup = 'Permanences';
     protected static ?string $label = 'Demandes de permanences';
-    protected static ?string $navigationIcon = 'heroicon-o-calendar-days';
+    protected static ?string $navigationIcon = 'heroicon-o-pencil-square';
 
     public static function form(Form $form): Form
     {
