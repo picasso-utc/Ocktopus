@@ -25,14 +25,17 @@ public function form(Form $form): Form
             ->schema(
                 [
                 TextInput::make('state')
-                    ->label('Nom'),
+                    ->label('Nom') 
+                    ->maxLength(3)
+                    ->required()
+                    ->rules(['regex:/^[AP]\d{2}$/']),
                 DatePicker::make('startOfSemestre')
                     ->label('Start of Semestre')
                     ->required(),
                 DatePicker::make('endOfSemestre')
                     ->label('End of Semestre')
-                    ->required(),
-
+                    ->required()
+                    ->after('startOfSemestre'),
                 ]
             );
     }
