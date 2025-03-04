@@ -67,9 +67,8 @@ class RequestedPermsResource extends Resource
                         'xl' => 3,
                         '2xl' => 3,
                     ]),
-                Forms\Components\RichEditor::make('description')
+                Forms\Components\Textarea::make('description')
                     ->required()
-                    ->toolbarButtons(['bold', 'italic', 'underline', 'link', 'unorderedList', 'undo', 'redo'])
                     ->placeholder("Donne nous des détails sur la permanence que vous voulez organiser")
                     ->label('Description (anims du jour et du soir, ambiance, musique)')
                     ->columnSpan([
@@ -218,8 +217,7 @@ class RequestedPermsResource extends Resource
                         'xl' => 2,
                         '2xl' => 3,
                     ]),
-                Forms\Components\Select::make('jour')
-                    ->multiple()
+                Forms\Components\CheckboxList::make('jour')
                     ->options([
                         'lundi' => 'Lundi',
                         'mardi' => 'Mardi',
@@ -227,6 +225,7 @@ class RequestedPermsResource extends Resource
                         'jeudi' => 'Jeudi',
                         'vendredi' => 'Vendredi',
                     ])
+                    ->columns(2)                
                     ->label('Jours de la semaine préférentiels')
                     ->required()
                     ->columnSpan([
@@ -263,6 +262,7 @@ class RequestedPermsResource extends Resource
                 Forms\Components\TextInput::make('remarques')
                     ->placeholder('Donnez nous les informations qui vous semblent importantes')
                     ->label('Remarque supplémentaires')
+                    ->maxLength(255)
                     ->columnSpan([
                         'sm' => 6,
                         'md' => 6,
