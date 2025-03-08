@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Public\Pages\PlanningGenerator;
 use App\Http\Middleware\Auth;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -40,6 +41,7 @@ class PublicPanelProvider extends PanelProvider
             ->pages(
                 [
                 Pages\Dashboard::class,
+                PlanningGenerator::class
                 ]
             )
             ->discoverWidgets(in: app_path('Filament/Public/Widgets'), for: 'App\\Filament\\Public\\Widgets')

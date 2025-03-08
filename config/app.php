@@ -179,6 +179,7 @@ return [
         App\Providers\Filament\PublicPanelProvider::class,
         App\Providers\Filament\TresoPanelProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ])->toArray(),
 
     /*
